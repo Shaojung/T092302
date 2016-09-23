@@ -2,15 +2,18 @@ package tw.com.pcschool.t092302;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ButtonBarLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -59,7 +62,7 @@ public class MyAdapter extends BaseAdapter {
             holder.tv2 = (TextView) convertView.findViewById(R.id.textView2);
             holder.img = (ImageView) convertView.findViewById(R.id.imageView);
             holder.chk = (CheckBox) convertView.findViewById(R.id.checkBox);
-
+            holder.btn = (Button) convertView.findViewById(R.id.button);
             convertView.setTag(holder);
         }
         else
@@ -71,6 +74,12 @@ public class MyAdapter extends BaseAdapter {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 bchk[position] = isChecked;
+            }
+        });
+        holder.btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "MSG:" + fruits[position], Toast.LENGTH_SHORT).show();
             }
         });
         holder.tv.setText(fruits[position]);
@@ -86,5 +95,6 @@ public class MyAdapter extends BaseAdapter {
         TextView tv2;
         ImageView img;
         CheckBox chk;
+        Button btn;
     }
 }

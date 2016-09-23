@@ -34,4 +34,10 @@
         android:text=""
         android:id="@+id/checkBox" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button" />
+
 </LinearLayout>
