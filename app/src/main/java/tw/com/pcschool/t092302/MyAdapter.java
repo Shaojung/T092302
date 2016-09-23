@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -15,11 +16,16 @@ import org.w3c.dom.Text;
  */
 public class MyAdapter extends BaseAdapter {
     String[] fruits;
+    String[] prices;
+    int[] imgs;
     Context context;
-    public MyAdapter(Context c, String[] fruits)
+    public MyAdapter(Context c, String[] fruits, String[] p, int[] i)
     {
         this.fruits = fruits;
+        this.prices = p;
+        this.imgs = i;
         context = c;
+
     }
     @Override
     public int getCount() {
@@ -42,6 +48,10 @@ public class MyAdapter extends BaseAdapter {
         View v = inflater.inflate(R.layout.myitem, null);
         TextView tv = (TextView) v.findViewById(R.id.textView);
         tv.setText(fruits[position]);
+        TextView tv2 = (TextView) v.findViewById(R.id.textView2);
+        tv.setText(prices[position]);
+        ImageView img = (ImageView) v.findViewById(R.id.imageView);
+        img.setImageResource(imgs[position]);
 
         return v;
     }
