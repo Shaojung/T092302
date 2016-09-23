@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,13 +21,15 @@ public class MyAdapter extends BaseAdapter {
     String[] fruits;
     String[] prices;
     int[] imgs;
+    boolean[] bchk;
     Context context;
     LayoutInflater inflater;
-    public MyAdapter(Context c, String[] fruits, String[] p, int[] i)
+    public MyAdapter(Context c, String[] fruits, String[] p, int[] i, boolean b[])
     {
         this.fruits = fruits;
         this.prices = p;
         this.imgs = i;
+        bchk = b;
         context = c;
         inflater = ((AppCompatActivity) context).getLayoutInflater();
     }
@@ -46,7 +49,7 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null)
         {
@@ -56,6 +59,7 @@ public class MyAdapter extends BaseAdapter {
             holder.tv2 = (TextView) convertView.findViewById(R.id.textView2);
             holder.img = (ImageView) convertView.findViewById(R.id.imageView);
             holder.chk = (CheckBox) convertView.findViewById(R.id.checkBox);
+
             convertView.setTag(holder);
         }
         else
@@ -63,11 +67,16 @@ public class MyAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-
+        holder.chk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                bchk[position] = isChecked;
+            }
+        });
         holder.tv.setText(fruits[position]);
         holder.tv2.setText(prices[position]);
         holder.img.setImageResource(imgs[position]);
-
+        holder.chk.setChecked(bchk[position]);
 
         return convertView;
     }
