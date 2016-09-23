@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
-    String[] fruits = {"蘋果", "香蕉", "鳳梨", "芒果"};
-    String[] prices = {"50", "30", "100", "70"};
-    int[] imgs = {R.drawable.apple, R.drawable.banana, R.drawable.pineapple, R.drawable.mango};
+    String[] fruits = {"蘋果", "香蕉", "鳳梨", "芒果", "AAA", "BBB", "CCC", "DDD", "EEE"};
+    String[] prices = {"50", "30", "100", "70", "70", "70","70", "70", "90"};
+    int[] imgs = {R.drawable.apple, R.drawable.banana, R.drawable.pineapple, R.drawable.mango, R.drawable.banana, R.drawable.pineapple, R.drawable.mango, R.drawable.pineapple, R.drawable.mango};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

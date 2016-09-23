@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,6 +55,7 @@ public class MyAdapter extends BaseAdapter {
             holder.tv = (TextView) convertView.findViewById(R.id.textView);
             holder.tv2 = (TextView) convertView.findViewById(R.id.textView2);
             holder.img = (ImageView) convertView.findViewById(R.id.imageView);
+            holder.chk = (CheckBox) convertView.findViewById(R.id.checkBox);
             convertView.setTag(holder);
         }
         else
@@ -74,5 +76,6 @@ public class MyAdapter extends BaseAdapter {
         TextView tv;
         TextView tv2;
         ImageView img;
+        CheckBox chk;
     }
 }
